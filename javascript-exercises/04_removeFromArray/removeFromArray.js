@@ -1,14 +1,10 @@
-const removeFromArray = function (arr1, num1, num2) {
-  let sum = "";
-  for (i = 0; i < arr1.length; i++) {
-    if (arr1[i] === num1 || (arr1[i] === num2 && typeof num2 !== "Number")) {
-      continue;
-    } else if (arr1[i] !== num1) {
-      sum = sum + arr1[i];
+const removeFromArray = function (arr1, ...num1) {
+  for (i = 0; i < num1.length; i++) {
+    if (arr1.includes(num1[i])) {
+      arr1.splice(arr1.indexOf(num1[i]), 1);
     }
   }
-  console.log(typeof sum);
-  return sum.split("").map(Number);
+  return arr1;
 };
 
 // Do not edit below this line
